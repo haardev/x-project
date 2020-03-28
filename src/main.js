@@ -1,0 +1,1 @@
+import DB_CONFIG from './dbConfig.js';

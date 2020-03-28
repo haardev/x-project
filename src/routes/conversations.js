@@ -1,0 +1,43 @@
+import express from 'express';
+import {ValidationError} from 'sequelize';
+import ConversationModel from '../models/conversationModel';
+import { ValidationErrorMessage } from '../types/ValidaitonErrorMessage';
+
+const router = express.Router();
+
+router.get('/', async (req, res) => {
+    try {
+        const conversations = await ConversationModel.findAll({
+            raw : true,
+            nest : true
+          });
+
+          return res.json(conversations);
+    }
+    catch(exeception) {
+        return res.send('Error with the server');
+    }
+});
+
+router.post('/', async (req, res) => {
+    console.log(req.body);
+    const response = null;
+    
+    try {
+        response = await ConversationModel.create(req.body);
+    }
+    catch(exeception) {
+        if(exeception instanceof ValidationError) {
+            const errorMessage = new ValidationErrorMessage(exeception);
+            response = errorMessage.getMessage();
+            response = exeception;
+        }
+        else {
+            console.log('Log it ');
+        }
+    }
+ 
+    return res.json(response);
+});
+
+export default router;
