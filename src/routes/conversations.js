@@ -30,7 +30,6 @@ router.post('/', async (req, res) => {
         if(exeception instanceof ValidationError) {
             const errorMessage = new ValidationErrorMessage(exeception);
             response = errorMessage.getMessage();
-            response = exeception;
         }
         else {
             console.log('Log it ');
