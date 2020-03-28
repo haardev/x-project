@@ -1,11 +1,13 @@
 import express from 'express';
 import path from 'path';
+import cookieParser from 'cookie-parser';
 import conversations from './routes/conversations';
 
 const app = express();
 const port =  3000 || process.env.PORT;
 
-app.use(express.json())
+app.use(express.json());
+app.use(cookieParser());
 
 //Routes
 app.use('/conversations', conversations);

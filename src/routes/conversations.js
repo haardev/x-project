@@ -21,7 +21,9 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     console.log(req.body);
-    const response = null;
+    let response = null;
+
+    console.log(req.cookies);
     
     try {
         response = await ConversationModel.create(req.body);
@@ -30,14 +32,16 @@ router.post('/', async (req, res) => {
         if(exeception instanceof ValidationError) {
             const errorMessage = new ValidationErrorMessage(exeception);
             response = errorMessage.getMessage();
-
-            
         }
         else {
             console.log('Log it ');
         }
     }
- 
+    response = {
+        ...response,
+        cookies: req.cookies
+    };
+    
     return res.json(response);
 });
 
