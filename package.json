@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon",
-    "prod:run": "pm2 start"
+    "prod:run": "pm2 start --watch",
+    "prod:stop": "pm2 stop all"
   },
   "author": "",
   "license": "ISC",
