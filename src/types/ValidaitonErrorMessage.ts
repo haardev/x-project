@@ -11,7 +11,8 @@ export class ValidationErrorMessage extends ErrorMessage {
     getMessage(): object {
         console.log(this.error.errors);
         return {
-            message: 'Error in validation'
+            message: 'Error in validation',
+            errors: [1,2]
         }
     }
 
