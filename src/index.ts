@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Set static path
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../public/build')));
 
 //Routes
 app.use('/conversations', conversations);
@@ -29,12 +29,12 @@ const io = socketio(server);
 
 //Default index
 app.get('*', (req: Request, res: Response) => {
-   res.sendFile(path.resolve(__dirname, '../public', 'index.html'));
+   res.sendFile(path.resolve(__dirname, '../public/build', 'index.html'));
 });
 
 io.on(SocketIoEvent.CONNECTION, socket => {
    socket.emit(SocketIoEmitMessage.MESSAGE, 'You are connected');
-
+   console.log('Connected');
    socket.on(SocketIoEvent.DISCONNECT, () => {
       io.emit(SocketIoEmitMessage.MESSAGE, 'Leave the chat room');
    });

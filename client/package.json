@@ -10,14 +10,18 @@
     "@types/node": "^12.12.32",
     "@types/react": "^16.9.27",
     "@types/react-dom": "^16.9.5",
+    "@types/socket.io-client": "^1.4.32",
+    "common-modules": "file:../common_modules",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "socket.io-client": "^2.3.0",
     "typescript": "^3.7.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "mv build ../public",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

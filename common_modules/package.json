@@ -1,0 +1,16 @@
+{
+  "name": "common-modules",
+  "version": "1.0.0",
+  "description": "Common moduels for X-Project",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
+}

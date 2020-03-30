@@ -1,5 +1,5 @@
 import mysql from 'mysql';
-import {DB_CONFIG} from './dbConfig';
+import { DB_CONFIG } from './dbConfig';
 
 export class MysqlConnection {
     connection = null;
@@ -26,6 +26,6 @@ export class MysqlConnection {
                 resolve(results);
             });
             this.connection.end();
-        });      
+        });
     }
 }

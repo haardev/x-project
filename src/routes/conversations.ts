@@ -1,11 +1,11 @@
-import express from 'express';
+import express, {Response, Request} from 'express';
 import {ValidationError} from 'sequelize';
 import ConversationModel from '../models/conversationModel';
 import { ValidationErrorMessage } from '../types/ValidaitonErrorMessage';
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/', async (req: Request, res: Response) => {
     try {
         const conversations = await ConversationModel.findAll({
             raw : true,
@@ -19,11 +19,8 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
-    console.log(req.body);
+router.post('/', async (req:Request, res: Response) => {
     let response = null;
-
-    console.log(req.cookies);
     
     try {
         response = await ConversationModel.create(req.body);
