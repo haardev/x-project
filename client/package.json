@@ -21,7 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "rm -r -f ../public/build/* && mv build ../public",
+    "postbuild": "rm -r -f ../public/* && mv build ../public",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
