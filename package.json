@@ -7,6 +7,8 @@
     "start:dev": "nodemon",
     "prod:run": "pm2 start --watch",
     "dev-client": "npm start --prefix client",
+    "install-common-module": "npm i --prefix common_modules",
+    "build-common-module": "npm run build --prefix common_modules",
     "install-client-ci": "npm ci --prefix client", 
     "build-client": "npm run-script build --prefix client",
     "prod:stop": "pm2 stop all",
