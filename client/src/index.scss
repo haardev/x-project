@@ -1,0 +1,12 @@
+@import "scss/variables";
+@import "scss/base";
+
+//Components
+@import "scss/components/header";
+
+//Chat components
+@import "scss/components/chat/chat-container";
+@import "scss/components/chat/chat-conversation";
+@import "scss/components/chat/chat-input-area";
+@import "scss/components/chat/chat-nav-bar";
+@import "scss/components/chat/chat-user-list";

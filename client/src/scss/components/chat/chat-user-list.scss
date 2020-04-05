@@ -1,0 +1,5 @@
+.chat-user-list {
+  flex: 0 0 25%; /* ~ 2 * 33.33% */
+  height: calc(100% - 40px); /* excluding the height of the header */
+  background-color: lightgray;
+}

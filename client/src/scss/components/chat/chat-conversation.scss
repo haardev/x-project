@@ -1,0 +1,36 @@
+.chat-conversation {
+  flex: 0 0 75%; /* ~ 33.33% */
+  height: calc(100% - 40px); /* excluding the height of the header */
+  background-color: #fff;
+  display: flex;
+  align-items: flex-end;
+  overflow: auto;
+  flex-flow: column-reverse;
+
+  &__list {
+    width: 100%;
+  }
+
+  &__line {
+    border-top: 1px solid lighten(#282c34, 40%);
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 8px 4px;
+
+    &__timestamp {
+      flex-basis: 10%;
+      color: lighten(#282c34, 40%);
+    }
+
+    &__user-name {
+      color: red;
+      margin-right: 10px;
+    }
+
+    &__text {
+      color: #282c34;
+    }
+  }
+}

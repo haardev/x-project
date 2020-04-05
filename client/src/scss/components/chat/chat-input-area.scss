@@ -1,0 +1,19 @@
+.chat-input-area {
+  flex: 0 0 100%;
+  padding: 16px 0;
+  background-color: silver;
+
+  &__container {
+    padding: 0 8px;
+    display: flex;
+  }
+
+  &__input-area {
+    flex: 0 0 70%;
+    margin-right: 5%;
+  }
+
+  &__submit {
+    flex: 0 0 24%;
+  }
+}

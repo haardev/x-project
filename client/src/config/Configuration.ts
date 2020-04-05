@@ -1,3 +1,3 @@
-export interface Configiuration {
+export interface Configuration {
     socketUrl: string
 }
