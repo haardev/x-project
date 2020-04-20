@@ -36,8 +36,6 @@ app.get('*', (req: Request, res: Response) => {
 io.on(SocketIoEvent.CONNECTION, socket => {
    socket.emit(SocketIoEmitMessage.MESSAGE, 'Test');
 
-   console.log('Connected');
-
    socket.on(SocketIoEvent.RECEIVE_CHAT_MESSAGE, (msg) => {
        console.log(msg);
        io.emit(SocketIoEmitMessage.CHAT_MESSAGE, msg + '_Server');
