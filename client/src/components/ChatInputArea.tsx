@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { useCallback, useState } from "react";
+import { useCallback, useState } from 'react';
 import { connect } from "react-redux";
 import { sendMessage } from "../redux/chat/actions";
-import { Message } from "../redux/chat/types";
+import { Message, MessageType } from "../redux/chat/types";
 import { SocketInstance } from "../socket";
-import {SocketIoEmitMessage} from 'common-modules';
 
 type Props = {
     sendMessage: typeof sendMessage
@@ -22,6 +21,7 @@ const ChatInputArea = ({sendMessage}: Props) => {
 
         const message: Message = {
             user: 'Milen',
+            messageType: MessageType.USER_MESSAGE,
             message: chatText,
             timestamp: new Date().getTime()
         };

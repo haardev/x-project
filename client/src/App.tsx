@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { SocketIoEmitMessage } from 'common-modules';
 import Home from "./pages/Home";
 import { SocketInstance } from "./socket";
 import { connect } from "react-redux";
-import { sendMessage } from "./redux/chat/actions";
+import { receiveSystemMessage, sendMessage } from "./redux/chat/actions";
+import { MessageType } from "./redux/chat/types";
+import GoogleMaps from "./pages/GoogleMaps";
 
-const App = ({sendMessage}) => {
+const App = ({sendMessage, receiveSystemMessage}) => {
     useEffect(() => {
         const socketInstance = SocketInstance.getInstance();
         socketInstance.socket.on(SocketIoEmitMessage.MESSAGE, (data: string) => console.log(data));
@@ -15,7 +17,13 @@ const App = ({sendMessage}) => {
             message: data,
             user: 'Hasan'
         }));
-    }, []);
+        socketInstance.socket.on(SocketIoEmitMessage.SYSTEM_MESSAGE, (data: string) => receiveSystemMessage({
+            timestamp: new Date().getTime(),
+            message: data,
+            messageType: MessageType.SYSTEM_MESSAGE,
+            user: 'SYSTEM'
+        }));
+    });
     return (
         <div className="App">
             <header>
@@ -25,7 +33,9 @@ const App = ({sendMessage}) => {
                 <Switch>
                     <Route component={ Home }
                            exact
-                           path={ '' }/>
+                           path={ '/' }/>
+                    <Route component={ GoogleMaps }
+                           path={ '/maps' }/>
                 </Switch>
             </div>
         </div>
@@ -34,5 +44,5 @@ const App = ({sendMessage}) => {
 
 export default connect(
     null,
-    {sendMessage},
+    {sendMessage, receiveSystemMessage},
 )(App);

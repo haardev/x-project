@@ -1,9 +1,4 @@
-import {
-    ChatState,
-    SEND_MESSAGE,
-    DELETE_MESSAGE,
-    ChatActionTypes
-} from "./types";
+import { ChatActionTypes, ChatState, DELETE_MESSAGE, SEND_MESSAGE, SYSTEM_MESSAGE, } from "./types";
 
 const initialState: ChatState = {
     messages: []
@@ -15,6 +10,7 @@ export function chatReducer(
 ): ChatState {
     switch (action.type) {
         case SEND_MESSAGE:
+        case SYSTEM_MESSAGE:
             return {
                 messages: [...state.messages, action.payload]
             };

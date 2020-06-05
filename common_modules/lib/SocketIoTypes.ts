@@ -1,6 +1,7 @@
 export enum SocketIoEmitMessage  {
     MESSAGE = 'message',
-    CHAT_MESSAGE = 'chat_message'
+    CHAT_MESSAGE = 'chat_message',
+    SYSTEM_MESSAGE = 'system_message'
 }
 
 export enum SocketIoEvent {
